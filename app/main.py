@@ -1,4 +1,5 @@
 from typing import Union
+# import math
 
 
 class Distance:
@@ -17,6 +18,7 @@ class Distance:
             return Distance(self.km + other.km)
         if isinstance(other, (int, float)):
             return Distance(self.km + other)
+        NotImplemented
 
     def __iadd__(self, other: Union["Distance", int, float]) -> "Distance":
         if isinstance(other, Distance):
@@ -39,12 +41,14 @@ class Distance:
             return self.km < other.km
         if isinstance(other, (int, float)):
             return self.km < other
+        NotImplemented
 
     def __gt__(self, other: Union["Distance", int, float]) -> bool:
         if isinstance(other, Distance):
             return self.km > other.km
         if isinstance(other, (int, float)):
             return self.km > other
+        NotImplemented
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, Distance):
@@ -52,15 +56,18 @@ class Distance:
         if isinstance(other, (int, float)):
             return self.km == other
         return False
+        NotImplemented
 
     def __le__(self, other: Union["Distance", int, float]) -> bool:
         if isinstance(other, Distance):
             return self.km <= other.km
         if isinstance(other, (int, float)):
             return self.km <= other
+        NotImplemented
 
     def __ge__(self, other: Union["Distance", int, float]) -> bool:
         if isinstance(other, Distance):
             return self.km >= other.km
         if isinstance(other, (int, float)):
             return self.km >= other
+        NotImplemented
