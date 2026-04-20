@@ -34,8 +34,8 @@ class Distance:
     def __truediv__(self, other: Union[int, float]) -> Distance:
         if other == 0:
             raise ZeroDivisionError("Cannot divide by zero")
-        res_div = self.km / other * 100 / 100
-        return Distance(math.floor(res_div))
+        res_div = round(self.km / other, 2)
+        return Distance(res_div)
 
     def __lt__(self, other: Union[Distance, int, float]) -> bool:
         if isinstance(other, Distance):
@@ -56,7 +56,6 @@ class Distance:
             return self.km == other.km
         if isinstance(other, (int, float)):
             return self.km == other
-        return False
         return NotImplemented
 
     def __le__(self, other: Union[Distance, int, float]) -> bool:
